@@ -18,4 +18,4 @@ jobs:
       - name: Create PR Virtual Cluster
         env:
           NAME: pr-${{ github.event.pull_request.number }}-${{ github.sha }}-${{ github.run_id }}
-        run: vcluster create $NAME --project default --debug
+        run: vcluster create $NAME --project default --debug --driver platform
