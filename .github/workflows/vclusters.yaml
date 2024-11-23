@@ -19,4 +19,4 @@ jobs:
         env:
           NAME: pr-${{ github.event.pull_request.number }}
           auto-cleanup: true
-        run: vcluster create $NAME --project default --debug 
+        run: vcluster create $NAME --project default --driver platform --debug 
