@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install vCluster CLI
-        uses: loft-sh/setup-vcluster@main
+        uses: loft-sh/create-vcluster@main
       - name: Login to vCluster Platform instance
         env:
           LOFT_URL: ${{ secrets.LOFT_URL }}
