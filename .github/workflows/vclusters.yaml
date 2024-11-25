@@ -9,14 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install vCluster CLI
-        uses: loft-sh/create-vcluster@main
+        uses: loft-sh/setup-vcluster@main
       - name: Login to vCluster Platform instance
         env:
           LOFT_URL: ${{ secrets.LOFT_URL }}
           ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
         run: vcluster login $LOFT_URL --access-key $ACCESS_KEY
-      - name: Create PR Virtual Cluster
-        env:
-          NAME: pr-${{ github.event.pull_request.number }}
+      - name: Create Virtual Cluster for PR
+        uses: loft-sh/create-vcluster@main
+        with:
+          name: pr-${{ github.event.pull_request.number }}
           auto-cleanup: true
-        run: vcluster create $NAME --project default --driver platform --debug 
