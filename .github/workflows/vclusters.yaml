@@ -6,7 +6,6 @@ on:
       - "main"
 jobs:
   deploy:
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Install vCluster CLI
