@@ -6,7 +6,6 @@ on:
       - "main"
 jobs:
   deploy:
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Install vCluster CLI
@@ -22,4 +21,4 @@ jobs:
         uses: loft-sh/create-vcluster@main
         with:
           name: pr-${{ github.event.pull_request.number }}
-          auto-cleanup: true
+          # auto-cleanup: true
